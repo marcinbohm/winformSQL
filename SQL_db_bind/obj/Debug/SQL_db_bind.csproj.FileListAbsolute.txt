@@ -1,0 +1,11 @@
+C:\Users\marci\source\repos\SQL_db_bind\bin\Debug\SQL_db_bind.exe.config
+C:\Users\marci\source\repos\SQL_db_bind\bin\Debug\SQL_db_bind.exe
+C:\Users\marci\source\repos\SQL_db_bind\bin\Debug\SQL_db_bind.pdb
+C:\Users\marci\source\repos\SQL_db_bind\obj\Debug\SQL_db_bind.csprojAssemblyReference.cache
+C:\Users\marci\source\repos\SQL_db_bind\obj\Debug\SQL_db_bind.Form1.resources
+C:\Users\marci\source\repos\SQL_db_bind\obj\Debug\SQL_db_bind.Properties.Resources.resources
+C:\Users\marci\source\repos\SQL_db_bind\obj\Debug\SQL_db_bind.csproj.GenerateResource.cache
+C:\Users\marci\source\repos\SQL_db_bind\obj\Debug\SQL_db_bind.csproj.CoreCompileInputs.cache
+C:\Users\marci\source\repos\SQL_db_bind\obj\Debug\SQL_db_bind.exe
+C:\Users\marci\source\repos\SQL_db_bind\obj\Debug\SQL_db_bind.pdb
+C:\Users\marci\source\repos\SQL_db_bind\obj\Debug\SQL_db_bind.Form2.resources
