@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,14 +19,11 @@ namespace SQL_db_bind
             InitializeComponent();
         }
 
+        SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-H65VDV2\SQLEXPRESS;Initial Catalog=marcin.bohm;Integrated Security=True");
+
         private void button1_Click(object sender, EventArgs e)
         {
-            SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-H65VDV2\SQLEXPRESS;Initial Catalog=marcin.bohm;Integrated Security=True");
-            string query = "SELECT * FROM Narzedzia";
-            SqlDataAdapter sda = new SqlDataAdapter(query, con);
-            DataTable dt = new DataTable();
-            sda.Fill(dt);
-            dataGridView1.DataSource = dt;
+            
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -40,17 +38,55 @@ namespace SQL_db_bind
 
         private void button3_Click(object sender, EventArgs e)
         {
-            SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-H65VDV2\SQLEXPRESS;Initial Catalog=marcin.bohm;Integrated Security=True");
+            
+;
+                if (String.IsNullOrEmpty(textBox2.Text) || String.IsNullOrEmpty(textBox3.Text) || String.IsNullOrEmpty(textBox4.Text))
+                {
+                    MessageBox.Show("Fill all of the textboxes");
+                }
+                else
+                {
+                    con.Open();
 
-            if (String.IsNullOrEmpty(textBox2.Text) || String.IsNullOrEmpty(textBox3.Text) || String.IsNullOrEmpty(textBox4.Text) || String.IsNullOrEmpty(textBox5.Text) || String.IsNullOrEmpty(textBox6.Text))
-            {
-                MessageBox.Show("Fill all of the textboxes");
-            }
-            else
-            {
-                SqlCommand query = new SqlCommand("INSERT INTO Narzedzia (nazwa_podstawowa, nazwa_dodatkowa, numer_inwentarzowy, ilosc, id_rodzaj_narzedzia, narzedzie_unikatowe) " +
-                " VALUES ('" + textBox2.Text.Trim() + ", " + textBox3.Text.Trim() + ", " + textBox4.Text.Trim() + ", " + textBox5.Text.Trim() + ", " + textBox6.Text.Trim() + ", "+checkBox1.CheckState.ToString()+"')", con);
-            }
+                    SqlCommand query = new SqlCommand("INSERT INTO Narzedzia (nazwa_podstawowa, nazwa_dodatkowa, numer_inwentarzowy, ilosc, id_rodzaj_narzedzia, narzedzie_unikatowe) " +
+                    " VALUES ('@nazwa_podstawowa, @nazwa_dodatkowa, @numer_inwentarzowy, @ilosc, @id_rodzaj_narzedzia, @narzedzie_unikatowe')", con);
+                    query.Connection = con;
+
+                    query.Parameters.AddWithValue("@nazwa_podstawowa", textBox2);
+                    query.Parameters.AddWithValue("@nazwa_dodatkowa", textBox3);
+                    query.Parameters.AddWithValue("@numer_inwentarzowy", textBox4);
+                    query.Parameters.AddWithValue("@ilosc", numericUpDown1);
+                    query.Parameters.AddWithValue("@id_rodzaj_narzedzia", numericUpDown2);
+                
+                    if(checkBox1.Checked)
+                    {
+                        query.Parameters.AddWithValue("@narzedzie_unikatowe", 1);
+                    }
+                    else 
+                    {
+                        query.Parameters.AddWithValue("@narzedzie_unikatowe", 0);
+                    }
+
+                    query.ExecuteNonQuery();
+
+
+                    con.Close();
+                }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void Form2_Load(object sender, EventArgs e)
+        {
+            SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-H65VDV2\SQLEXPRESS;Initial Catalog=marcin.bohm;Integrated Security=True");
+            string query = "SELECT * FROM Narzedzia";
+            SqlDataAdapter sda = new SqlDataAdapter(query, con);
+            DataTable dt = new DataTable();
+            sda.Fill(dt);
+            dataGridView1.DataSource = dt;
         }
     }
 }
