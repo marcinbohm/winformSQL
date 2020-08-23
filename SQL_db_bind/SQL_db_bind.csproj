@@ -66,6 +66,21 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>_DESKTOP_H65VDV2_SQLEXPRESSDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="_marcin_bohmDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_marcin_bohmDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="_marcin_bohmDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_marcin_bohmDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="_marcin_bohmDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_marcin_bohmDataSet2.xsd</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -100,6 +115,39 @@
     </None>
     <None Include="_DESKTOP_H65VDV2_SQLEXPRESSDataSet.xss">
       <DependentUpon>_DESKTOP_H65VDV2_SQLEXPRESSDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="_marcin_bohmDataSet.xsc">
+      <DependentUpon>_marcin_bohmDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="_marcin_bohmDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>_marcin_bohmDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="_marcin_bohmDataSet.xss">
+      <DependentUpon>_marcin_bohmDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="_marcin_bohmDataSet1.xsc">
+      <DependentUpon>_marcin_bohmDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="_marcin_bohmDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>_marcin_bohmDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="_marcin_bohmDataSet1.xss">
+      <DependentUpon>_marcin_bohmDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="_marcin_bohmDataSet2.xsc">
+      <DependentUpon>_marcin_bohmDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="_marcin_bohmDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>_marcin_bohmDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="_marcin_bohmDataSet2.xss">
+      <DependentUpon>_marcin_bohmDataSet2.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

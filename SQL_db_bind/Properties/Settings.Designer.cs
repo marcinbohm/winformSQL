@@ -33,5 +33,16 @@ namespace SQL_db_bind.Properties {
                 return ((string)(this["DESKTOP_H65VDV2_SQLEXPRESSConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-H65VDV2\\SQLEXPRESS;Initial Catalog=marcin.bohm;Integrated Sec" +
+            "urity=True")]
+        public string ConnStrDB1 {
+            get {
+                return ((string)(this["ConnStrDB1"]));
+            }
+        }
     }
 }
