@@ -20,25 +20,32 @@ namespace SQL_db_bind
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+           
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            SqlConnection sqlconn = new SqlConnection(@"Data Source=DESKTOP-H65VDV2\SQLEXPRESS;Initial Catalog=marcin.bohm;Integrated Security=True");
-            string query = "SELECT Count(*) FROM Login WHERE Username = '" + Username.Text + "' AND Password = '"+Password.Text.Trim()+"'";
-            SqlDataAdapter sqlda = new SqlDataAdapter(query, sqlconn);
-            DataTable dataTable = new DataTable();
-            sqlda.Fill(dataTable);
-            if(dataTable.Rows[0][0].ToString() == "1")
+            Uzytkownik u = new Uzytkownik();
+            u.Server = textBox1.Text;
+            u.Database = textBox2.Text;
+            u.Usrname = Username.Text;
+            u.Pass = Password.Text;
+            SqlConnection sqlconn = new SqlConnection($"Data Source={u.Server};Initial Catalog={u.Database};User Id={u.Usrname};Password={u.Pass}");
+            try
             {
-                this.Hide();
-                Form2 FrmMain = new Form2();
-                FrmMain.Show();
+                sqlconn.Open();
+                using (sqlconn)
+                {
+                    this.Hide();
+                    Form2 FrmMain = new Form2(u);
+                    FrmMain.Show();
+                }
+                sqlconn.Close();
             }
-            else
+
+            catch (SqlException ex)
             {
-                MessageBox.Show("Username or password is incorrect");
+                MessageBox.Show(ex.ToString());
             }
         }
 

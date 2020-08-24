@@ -9,3 +9,14 @@ C:\Users\marci\source\repos\SQL_db_bind\obj\Debug\SQL_db_bind.csproj.CoreCompile
 C:\Users\marci\source\repos\SQL_db_bind\obj\Debug\SQL_db_bind.exe
 C:\Users\marci\source\repos\SQL_db_bind\obj\Debug\SQL_db_bind.pdb
 C:\Users\marci\source\repos\SQL_db_bind\obj\Debug\SQL_db_bind.Form2.resources
+C:\Users\marcin.bohm\Source\Repos\winformSQL\SQL_db_bind\bin\Debug\SQL_db_bind.exe.config
+C:\Users\marcin.bohm\Source\Repos\winformSQL\SQL_db_bind\bin\Debug\SQL_db_bind.exe
+C:\Users\marcin.bohm\Source\Repos\winformSQL\SQL_db_bind\bin\Debug\SQL_db_bind.pdb
+C:\Users\marcin.bohm\Source\Repos\winformSQL\SQL_db_bind\obj\Debug\SQL_db_bind.csprojAssemblyReference.cache
+C:\Users\marcin.bohm\Source\Repos\winformSQL\SQL_db_bind\obj\Debug\SQL_db_bind.Form1.resources
+C:\Users\marcin.bohm\Source\Repos\winformSQL\SQL_db_bind\obj\Debug\SQL_db_bind.Form2.resources
+C:\Users\marcin.bohm\Source\Repos\winformSQL\SQL_db_bind\obj\Debug\SQL_db_bind.Properties.Resources.resources
+C:\Users\marcin.bohm\Source\Repos\winformSQL\SQL_db_bind\obj\Debug\SQL_db_bind.csproj.GenerateResource.cache
+C:\Users\marcin.bohm\Source\Repos\winformSQL\SQL_db_bind\obj\Debug\SQL_db_bind.csproj.CoreCompileInputs.cache
+C:\Users\marcin.bohm\Source\Repos\winformSQL\SQL_db_bind\obj\Debug\SQL_db_bind.exe
+C:\Users\marcin.bohm\Source\Repos\winformSQL\SQL_db_bind\obj\Debug\SQL_db_bind.pdb

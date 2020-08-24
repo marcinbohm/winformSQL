@@ -30,6 +30,15 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.idnarzedziaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nazwapodstawowaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nazwadodatkowaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.numerinwentarzowyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iloscDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idrodzajnarzedziaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.narzedzieunikatoweDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.narzedziaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this._marcin_bohmDataSet2 = new SQL_db_bind._marcin_bohmDataSet2();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -45,39 +54,27 @@
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.listBox1 = new System.Windows.Forms.ListBox();
+            this.rodzajNarzedziaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this._marcin_bohmDataSet = new SQL_db_bind._marcin_bohmDataSet();
             this._DESKTOP_H65VDV2_SQLEXPRESSDataSet = new SQL_db_bind._DESKTOP_H65VDV2_SQLEXPRESSDataSet();
             this.dESKTOPH65VDV2SQLEXPRESSDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this._marcin_bohmDataSet = new SQL_db_bind._marcin_bohmDataSet();
-            this.rodzajNarzedziaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.rodzaj_NarzedziaTableAdapter = new SQL_db_bind._marcin_bohmDataSetTableAdapters.Rodzaj_NarzedziaTableAdapter();
-            this._marcin_bohmDataSet2 = new SQL_db_bind._marcin_bohmDataSet2();
-            this.narzedziaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.narzedziaTableAdapter = new SQL_db_bind._marcin_bohmDataSet2TableAdapters.NarzedziaTableAdapter();
-            this.idnarzedziaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nazwapodstawowaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nazwadodatkowaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.numerinwentarzowyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iloscDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idrodzajnarzedziaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.narzedzieunikatoweDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
             this.label9 = new System.Windows.Forms.Label();
             this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.narzedziaBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._marcin_bohmDataSet2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rodzajNarzedziaBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._marcin_bohmDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._DESKTOP_H65VDV2_SQLEXPRESSDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dESKTOPH65VDV2SQLEXPRESSDataSetBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this._marcin_bohmDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rodzajNarzedziaBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this._marcin_bohmDataSet2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.narzedziaBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
             this.SuspendLayout();
             // 
@@ -98,6 +95,60 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(552, 426);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // idnarzedziaDataGridViewTextBoxColumn
+            // 
+            this.idnarzedziaDataGridViewTextBoxColumn.DataPropertyName = "id_narzedzia";
+            this.idnarzedziaDataGridViewTextBoxColumn.HeaderText = "id_narzedzia";
+            this.idnarzedziaDataGridViewTextBoxColumn.Name = "idnarzedziaDataGridViewTextBoxColumn";
+            this.idnarzedziaDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nazwapodstawowaDataGridViewTextBoxColumn
+            // 
+            this.nazwapodstawowaDataGridViewTextBoxColumn.DataPropertyName = "nazwa_podstawowa";
+            this.nazwapodstawowaDataGridViewTextBoxColumn.HeaderText = "nazwa_podstawowa";
+            this.nazwapodstawowaDataGridViewTextBoxColumn.Name = "nazwapodstawowaDataGridViewTextBoxColumn";
+            // 
+            // nazwadodatkowaDataGridViewTextBoxColumn
+            // 
+            this.nazwadodatkowaDataGridViewTextBoxColumn.DataPropertyName = "nazwa_dodatkowa";
+            this.nazwadodatkowaDataGridViewTextBoxColumn.HeaderText = "nazwa_dodatkowa";
+            this.nazwadodatkowaDataGridViewTextBoxColumn.Name = "nazwadodatkowaDataGridViewTextBoxColumn";
+            // 
+            // numerinwentarzowyDataGridViewTextBoxColumn
+            // 
+            this.numerinwentarzowyDataGridViewTextBoxColumn.DataPropertyName = "numer_inwentarzowy";
+            this.numerinwentarzowyDataGridViewTextBoxColumn.HeaderText = "numer_inwentarzowy";
+            this.numerinwentarzowyDataGridViewTextBoxColumn.Name = "numerinwentarzowyDataGridViewTextBoxColumn";
+            // 
+            // iloscDataGridViewTextBoxColumn
+            // 
+            this.iloscDataGridViewTextBoxColumn.DataPropertyName = "ilosc";
+            this.iloscDataGridViewTextBoxColumn.HeaderText = "ilosc";
+            this.iloscDataGridViewTextBoxColumn.Name = "iloscDataGridViewTextBoxColumn";
+            // 
+            // idrodzajnarzedziaDataGridViewTextBoxColumn
+            // 
+            this.idrodzajnarzedziaDataGridViewTextBoxColumn.DataPropertyName = "id_rodzaj_narzedzia";
+            this.idrodzajnarzedziaDataGridViewTextBoxColumn.HeaderText = "id_rodzaj_narzedzia";
+            this.idrodzajnarzedziaDataGridViewTextBoxColumn.Name = "idrodzajnarzedziaDataGridViewTextBoxColumn";
+            // 
+            // narzedzieunikatoweDataGridViewCheckBoxColumn
+            // 
+            this.narzedzieunikatoweDataGridViewCheckBoxColumn.DataPropertyName = "narzedzie_unikatowe";
+            this.narzedzieunikatoweDataGridViewCheckBoxColumn.HeaderText = "narzedzie_unikatowe";
+            this.narzedzieunikatoweDataGridViewCheckBoxColumn.Name = "narzedzieunikatoweDataGridViewCheckBoxColumn";
+            // 
+            // narzedziaBindingSource
+            // 
+            this.narzedziaBindingSource.DataMember = "Narzedzia";
+            this.narzedziaBindingSource.DataSource = this._marcin_bohmDataSet2;
+            // 
+            // _marcin_bohmDataSet2
+            // 
+            this._marcin_bohmDataSet2.DataSetName = "_marcin_bohmDataSet2";
+            this._marcin_bohmDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // button1
             // 
@@ -121,9 +172,9 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(12, 223);
+            this.button3.Location = new System.Drawing.Point(12, 224);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 30);
+            this.button3.Size = new System.Drawing.Size(56, 30);
             this.button3.TabIndex = 3;
             this.button3.Text = "Add";
             this.button3.UseVisualStyleBackColor = true;
@@ -131,9 +182,9 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(110, 223);
+            this.button4.Location = new System.Drawing.Point(74, 223);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 31);
+            this.button4.Size = new System.Drawing.Size(58, 31);
             this.button4.TabIndex = 5;
             this.button4.Text = "Delete";
             this.button4.UseVisualStyleBackColor = true;
@@ -240,6 +291,16 @@
             this.listBox1.ValueMember = "rodzaj";
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
+            // rodzajNarzedziaBindingSource
+            // 
+            this.rodzajNarzedziaBindingSource.DataMember = "Rodzaj_Narzedzia";
+            this.rodzajNarzedziaBindingSource.DataSource = this._marcin_bohmDataSet;
+            // 
+            // _marcin_bohmDataSet
+            // 
+            this._marcin_bohmDataSet.DataSetName = "_marcin_bohmDataSet";
+            this._marcin_bohmDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // _DESKTOP_H65VDV2_SQLEXPRESSDataSet
             // 
             this._DESKTOP_H65VDV2_SQLEXPRESSDataSet.DataSetName = "_DESKTOP_H65VDV2_SQLEXPRESSDataSet";
@@ -250,76 +311,13 @@
             this.dESKTOPH65VDV2SQLEXPRESSDataSetBindingSource.DataSource = this._DESKTOP_H65VDV2_SQLEXPRESSDataSet;
             this.dESKTOPH65VDV2SQLEXPRESSDataSetBindingSource.Position = 0;
             // 
-            // _marcin_bohmDataSet
-            // 
-            this._marcin_bohmDataSet.DataSetName = "_marcin_bohmDataSet";
-            this._marcin_bohmDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // rodzajNarzedziaBindingSource
-            // 
-            this.rodzajNarzedziaBindingSource.DataMember = "Rodzaj_Narzedzia";
-            this.rodzajNarzedziaBindingSource.DataSource = this._marcin_bohmDataSet;
-            // 
             // rodzaj_NarzedziaTableAdapter
             // 
             this.rodzaj_NarzedziaTableAdapter.ClearBeforeFill = true;
             // 
-            // _marcin_bohmDataSet2
-            // 
-            this._marcin_bohmDataSet2.DataSetName = "_marcin_bohmDataSet2";
-            this._marcin_bohmDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // narzedziaBindingSource
-            // 
-            this.narzedziaBindingSource.DataMember = "Narzedzia";
-            this.narzedziaBindingSource.DataSource = this._marcin_bohmDataSet2;
-            // 
             // narzedziaTableAdapter
             // 
             this.narzedziaTableAdapter.ClearBeforeFill = true;
-            // 
-            // idnarzedziaDataGridViewTextBoxColumn
-            // 
-            this.idnarzedziaDataGridViewTextBoxColumn.DataPropertyName = "id_narzedzia";
-            this.idnarzedziaDataGridViewTextBoxColumn.HeaderText = "id_narzedzia";
-            this.idnarzedziaDataGridViewTextBoxColumn.Name = "idnarzedziaDataGridViewTextBoxColumn";
-            this.idnarzedziaDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // nazwapodstawowaDataGridViewTextBoxColumn
-            // 
-            this.nazwapodstawowaDataGridViewTextBoxColumn.DataPropertyName = "nazwa_podstawowa";
-            this.nazwapodstawowaDataGridViewTextBoxColumn.HeaderText = "nazwa_podstawowa";
-            this.nazwapodstawowaDataGridViewTextBoxColumn.Name = "nazwapodstawowaDataGridViewTextBoxColumn";
-            // 
-            // nazwadodatkowaDataGridViewTextBoxColumn
-            // 
-            this.nazwadodatkowaDataGridViewTextBoxColumn.DataPropertyName = "nazwa_dodatkowa";
-            this.nazwadodatkowaDataGridViewTextBoxColumn.HeaderText = "nazwa_dodatkowa";
-            this.nazwadodatkowaDataGridViewTextBoxColumn.Name = "nazwadodatkowaDataGridViewTextBoxColumn";
-            // 
-            // numerinwentarzowyDataGridViewTextBoxColumn
-            // 
-            this.numerinwentarzowyDataGridViewTextBoxColumn.DataPropertyName = "numer_inwentarzowy";
-            this.numerinwentarzowyDataGridViewTextBoxColumn.HeaderText = "numer_inwentarzowy";
-            this.numerinwentarzowyDataGridViewTextBoxColumn.Name = "numerinwentarzowyDataGridViewTextBoxColumn";
-            // 
-            // iloscDataGridViewTextBoxColumn
-            // 
-            this.iloscDataGridViewTextBoxColumn.DataPropertyName = "ilosc";
-            this.iloscDataGridViewTextBoxColumn.HeaderText = "ilosc";
-            this.iloscDataGridViewTextBoxColumn.Name = "iloscDataGridViewTextBoxColumn";
-            // 
-            // idrodzajnarzedziaDataGridViewTextBoxColumn
-            // 
-            this.idrodzajnarzedziaDataGridViewTextBoxColumn.DataPropertyName = "id_rodzaj_narzedzia";
-            this.idrodzajnarzedziaDataGridViewTextBoxColumn.HeaderText = "id_rodzaj_narzedzia";
-            this.idrodzajnarzedziaDataGridViewTextBoxColumn.Name = "idrodzajnarzedziaDataGridViewTextBoxColumn";
-            // 
-            // narzedzieunikatoweDataGridViewCheckBoxColumn
-            // 
-            this.narzedzieunikatoweDataGridViewCheckBoxColumn.DataPropertyName = "narzedzie_unikatowe";
-            this.narzedzieunikatoweDataGridViewCheckBoxColumn.HeaderText = "narzedzie_unikatowe";
-            this.narzedzieunikatoweDataGridViewCheckBoxColumn.Name = "narzedzieunikatoweDataGridViewCheckBoxColumn";
             // 
             // label1
             // 
@@ -361,28 +359,12 @@
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(174, 277);
+            this.button7.Location = new System.Drawing.Point(138, 222);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(75, 31);
+            this.button7.Size = new System.Drawing.Size(58, 32);
             this.button7.TabIndex = 27;
             this.button7.Text = "Update";
             this.button7.UseVisualStyleBackColor = true;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(22, 277);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(146, 13);
-            this.label8.TabIndex = 28;
-            this.label8.Text = "Update where id_narzedzia is";
-            // 
-            // numericUpDown2
-            // 
-            this.numericUpDown2.Location = new System.Drawing.Point(37, 293);
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(120, 20);
-            this.numericUpDown2.TabIndex = 29;
             // 
             // label9
             // 
@@ -407,8 +389,6 @@
             this.ClientSize = new System.Drawing.Size(1102, 450);
             this.Controls.Add(this.numericUpDown3);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.numericUpDown2);
-            this.Controls.Add(this.label8);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
@@ -434,14 +414,13 @@
             this.Text = "Form2";
             this.Load += new System.EventHandler(this.Form2_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.narzedziaBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._marcin_bohmDataSet2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rodzajNarzedziaBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._marcin_bohmDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this._DESKTOP_H65VDV2_SQLEXPRESSDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dESKTOPH65VDV2SQLEXPRESSDataSetBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this._marcin_bohmDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rodzajNarzedziaBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this._marcin_bohmDataSet2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.narzedziaBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -486,8 +465,6 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.NumericUpDown numericUpDown3;
     }

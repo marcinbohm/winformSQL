@@ -14,24 +14,27 @@ namespace SQL_db_bind
 {
     public partial class Form2 : Form
     {
+        Uzytkownik uzytkownik;
 
         SqlConnection con = new SqlConnection();
         SqlCommand query = new SqlCommand();
 
-        public Form2()
+        public Form2(Uzytkownik uzytkownik)
         {
             InitializeComponent();
-            con.ConnectionString = @"Data Source=DESKTOP-H65VDV2\SQLEXPRESS;Initial Catalog=marcin.bohm;Integrated Security=True";
+            this.uzytkownik = uzytkownik;
+            con.ConnectionString = $"Data Source={uzytkownik.Server};Initial Catalog={uzytkownik.Database};userid={uzytkownik.Usrname};password={uzytkownik.Pass}";
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-H65VDV2\SQLEXPRESS;Initial Catalog=marcin.bohm;Integrated Security=True");
+            con.Open();
             string query = "SELECT * FROM Narzedzia";
             SqlDataAdapter sda = new SqlDataAdapter(query, con);
             DataTable dt = new DataTable();
             sda.Fill(dt);
             dataGridView1.DataSource = dt;
+            con.Close();
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -70,9 +73,9 @@ namespace SQL_db_bind
                    
                 query.Parameters.AddWithValue("@numer_inwentarzowy", textBox4.Text.Trim());
                    
-                query.Parameters.AddWithValue("@ilosc", numericUpDown1);
+                query.Parameters.AddWithValue("@ilosc", numericUpDown1.Value);
                    
-                query.Parameters.AddWithValue("@id_rodzaj_narzedzia", listBox1.SelectedItem.ToString());
+                query.Parameters.AddWithValue("@id_rodzaj_narzedzia", listBox1.SelectedValue);
                 
                     
                 if(checkBox1.Checked)   
@@ -104,6 +107,13 @@ namespace SQL_db_bind
         {
             this.narzedziaTableAdapter.Fill(this._marcin_bohmDataSet2.Narzedzia);
             this.rodzaj_NarzedziaTableAdapter.Fill(this._marcin_bohmDataSet.Rodzaj_Narzedzia);
+            con.Open();
+            string query = "SELECT * FROM Narzedzia";
+            SqlDataAdapter sda = new SqlDataAdapter(query, con);
+            DataTable dt = new DataTable();
+            sda.Fill(dt);
+            dataGridView1.DataSource = dt;
+            con.Close();
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -126,15 +136,25 @@ namespace SQL_db_bind
 
         private void button6_Click(object sender, EventArgs e)
         {
+            WykonajZapytanie("UPDATE Narzedzia SET ilosc = ilosc + 1 WHERE id_narzedzia = '" + numericUpDown3.Value + "'");
+        }
+
+        private void WykonajZapytanie(String Query)
+        {
             con.Open();
 
             query.Connection = con;
 
-            query.CommandText = "UPDATE Narzedzia SET ilosc = ilosc + 1 WHERE id_narzedzia = '"+numericUpDown3.Value+"'";
+            query.CommandText = Query;
 
             query.ExecuteNonQuery();
 
             con.Close();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
