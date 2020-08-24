@@ -26,8 +26,8 @@ namespace SQL_db_bind
         private void button1_Click(object sender, EventArgs e)
         {
             Uzytkownik u = new Uzytkownik();
-            u.Server = textBox1.Text;
-            u.Database = textBox2.Text;
+            u.Server = textBox2.Text;
+            u.Database = textBox1.Text;
             u.Usrname = Username.Text;
             u.Pass = Password.Text;
             SqlConnection sqlconn = new SqlConnection($"Data Source={u.Server};Initial Catalog={u.Database};User Id={u.Usrname};Password={u.Pass}");

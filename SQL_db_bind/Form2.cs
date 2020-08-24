@@ -23,7 +23,7 @@ namespace SQL_db_bind
         {
             InitializeComponent();
             this.uzytkownik = uzytkownik;
-            con.ConnectionString = $"Data Source={uzytkownik.Server};Initial Catalog={uzytkownik.Database};userid={uzytkownik.Usrname};password={uzytkownik.Pass}";
+            con.ConnectionString = $"Data Source={uzytkownik.Server};Initial Catalog={uzytkownik.Database};user id={uzytkownik.Usrname};password={uzytkownik.Pass}";
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -105,8 +105,8 @@ namespace SQL_db_bind
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            this.narzedziaTableAdapter.Fill(this._marcin_bohmDataSet2.Narzedzia);
-            this.rodzaj_NarzedziaTableAdapter.Fill(this._marcin_bohmDataSet.Rodzaj_Narzedzia);
+            //this.narzedziaTableAdapter.Fill(this._marcin_bohmDataSet2.Narzedzia);
+            //this.rodzaj_NarzedziaTableAdapter.Fill(this._marcin_bohmDataSet.Rodzaj_Narzedzia);
             con.Open();
             string query = "SELECT * FROM Narzedzia";
             SqlDataAdapter sda = new SqlDataAdapter(query, con);
