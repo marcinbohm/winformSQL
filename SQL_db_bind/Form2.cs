@@ -113,25 +113,26 @@ namespace SQL_db_bind
             DataTable dt = new DataTable();
             sda.Fill(dt);
             dataGridView1.DataSource = dt;
+
+            string query2 = "SELECT rodzaj FROM Narzedzia, Rodzaj_Narzedzia WHERE Rodzaj_Narzedzia.id_rodzaj_narzedzia = Narzedzia.id_rodzaj_narzedzia GROUP BY rodzaj";
+            SqlDataAdapter adpt = new SqlDataAdapter(query2, con);
+            DataTable dt2 = new DataTable();
+            adpt.Fill(dt2);
+            foreach (DataRow row in dt2.Rows)
+            {
+                listBox1.Items.Add(row["rodzaj"].ToString());
+            }
             con.Close();
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            con.Open();
-
-            query.Connection = con;
-
-            query.CommandText = "EXEC zwieksz_ilosc_o_jeden";
-
-            query.ExecuteNonQuery();
-
-            con.Close();
+            WykonajZapytanie("EXEC zwieksz_ilosc_o_jeden");
         }
 
         private void button6_Click(object sender, EventArgs e)

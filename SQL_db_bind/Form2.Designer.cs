@@ -112,36 +112,42 @@
             this.nazwapodstawowaDataGridViewTextBoxColumn.DataPropertyName = "nazwa_podstawowa";
             this.nazwapodstawowaDataGridViewTextBoxColumn.HeaderText = "nazwa_podstawowa";
             this.nazwapodstawowaDataGridViewTextBoxColumn.Name = "nazwapodstawowaDataGridViewTextBoxColumn";
+            this.nazwapodstawowaDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // nazwadodatkowaDataGridViewTextBoxColumn
             // 
             this.nazwadodatkowaDataGridViewTextBoxColumn.DataPropertyName = "nazwa_dodatkowa";
             this.nazwadodatkowaDataGridViewTextBoxColumn.HeaderText = "nazwa_dodatkowa";
             this.nazwadodatkowaDataGridViewTextBoxColumn.Name = "nazwadodatkowaDataGridViewTextBoxColumn";
+            this.nazwadodatkowaDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // numerinwentarzowyDataGridViewTextBoxColumn
             // 
             this.numerinwentarzowyDataGridViewTextBoxColumn.DataPropertyName = "numer_inwentarzowy";
             this.numerinwentarzowyDataGridViewTextBoxColumn.HeaderText = "numer_inwentarzowy";
             this.numerinwentarzowyDataGridViewTextBoxColumn.Name = "numerinwentarzowyDataGridViewTextBoxColumn";
+            this.numerinwentarzowyDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // iloscDataGridViewTextBoxColumn
             // 
             this.iloscDataGridViewTextBoxColumn.DataPropertyName = "ilosc";
             this.iloscDataGridViewTextBoxColumn.HeaderText = "ilosc";
             this.iloscDataGridViewTextBoxColumn.Name = "iloscDataGridViewTextBoxColumn";
+            this.iloscDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // idrodzajnarzedziaDataGridViewTextBoxColumn
             // 
             this.idrodzajnarzedziaDataGridViewTextBoxColumn.DataPropertyName = "id_rodzaj_narzedzia";
             this.idrodzajnarzedziaDataGridViewTextBoxColumn.HeaderText = "id_rodzaj_narzedzia";
             this.idrodzajnarzedziaDataGridViewTextBoxColumn.Name = "idrodzajnarzedziaDataGridViewTextBoxColumn";
+            this.idrodzajnarzedziaDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // narzedzieunikatoweDataGridViewCheckBoxColumn
             // 
             this.narzedzieunikatoweDataGridViewCheckBoxColumn.DataPropertyName = "narzedzie_unikatowe";
             this.narzedzieunikatoweDataGridViewCheckBoxColumn.HeaderText = "narzedzie_unikatowe";
             this.narzedzieunikatoweDataGridViewCheckBoxColumn.Name = "narzedzieunikatoweDataGridViewCheckBoxColumn";
+            this.narzedzieunikatoweDataGridViewCheckBoxColumn.ReadOnly = true;
             // 
             // narzedziaBindingSource
             // 
@@ -284,14 +290,11 @@
             // 
             // listBox1
             // 
-            this.listBox1.DataSource = this.rodzajNarzedziaBindingSource;
-            this.listBox1.DisplayMember = "rodzaj";
             this.listBox1.FormattingEnabled = true;
             this.listBox1.Location = new System.Drawing.Point(220, 132);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(120, 121);
             this.listBox1.TabIndex = 21;
-            this.listBox1.ValueMember = "rodzaj";
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // rodzajNarzedziaBindingSource
