@@ -63,7 +63,7 @@ namespace SQL_db_bind
                    
                 query.Connection = con;
                     
-                query.CommandText = "INSERT INTO Narzedzia (nazwa_podstawowa, nazwa_dodatkowa, numer_inwentarzowy, ilosc, id_rodzaj_narzedzia, narzedzie_unikatowe) VALUES ('@nazwa_podstawowa', '@nazwa_dodatkowa', '@numer_inwentarzowy', @ilosc, @id_rodzaj_narzedzia, @narzedzie_unikatowe)";
+                query.CommandText = "INSERT INTO Narzedzia (nazwa_podstawowa, nazwa_dodatkowa, numer_inwentarzowy, ilosc, id_rodzaj_narzedzia, narzedzie_unikatowe) VALUES (@nazwa_podstawowa, @nazwa_dodatkowa, @numer_inwentarzowy, @ilosc, "+comboBox1.ValueMember+", @narzedzie_unikatowe)";
 
                     
                 query.Parameters.AddWithValue("@nazwa_podstawowa", textBox2.Text.Trim());
@@ -73,8 +73,6 @@ namespace SQL_db_bind
                 query.Parameters.AddWithValue("@numer_inwentarzowy", textBox4.Text.Trim());
                    
                 query.Parameters.AddWithValue("@ilosc", numericUpDown1.Value);
-                   
-                query.Parameters.AddWithValue("@id_rodzaj_narzedzia", comboBox1.ValueMember);
                 
                     
                 if(checkBox1.Checked)   
@@ -130,6 +128,7 @@ namespace SQL_db_bind
             adpt.Fill(dt2);
             //foreach (DataRow row in dt2.Rows)
             //{
+
             comboBox1.DataSource = dt2;
             comboBox1.ValueMember = "id_rodzaj_narzedzia";
             comboBox1.DisplayMember = "rodzaj";
@@ -169,7 +168,18 @@ namespace SQL_db_bind
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            if(dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+            {
+                dataGridView1.CurrentRow.Selected = true;
+                string NazwaPod = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+                string NazwDod = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+                string NumerInw = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
 
+                textBox2.Text = NazwaPod;
+                textBox3.Text = NazwDod;
+                textBox4.Text = NumerInw;
+                numericUpDown1.Value = Convert.ToDecimal(dataGridView1.Rows[e.RowIndex].Cells[4].Value);
+            }
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
