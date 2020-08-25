@@ -53,7 +53,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.listBox1 = new System.Windows.Forms.ListBox();
             this.rodzajNarzedziaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this._marcin_bohmDataSet = new SQL_db_bind._marcin_bohmDataSet();
             this._DESKTOP_H65VDV2_SQLEXPRESSDataSet = new SQL_db_bind._DESKTOP_H65VDV2_SQLEXPRESSDataSet();
@@ -67,6 +66,7 @@
             this.button7 = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.narzedziaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._marcin_bohmDataSet2)).BeginInit();
@@ -288,15 +288,6 @@
             this.numericUpDown1.Size = new System.Drawing.Size(120, 20);
             this.numericUpDown1.TabIndex = 20;
             // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(220, 132);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(120, 121);
-            this.listBox1.TabIndex = 21;
-            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
-            // 
             // rodzajNarzedziaBindingSource
             // 
             this.rodzajNarzedziaBindingSource.DataMember = "Rodzaj_Narzedzia";
@@ -388,11 +379,22 @@
             this.numericUpDown3.Size = new System.Drawing.Size(93, 20);
             this.numericUpDown3.TabIndex = 32;
             // 
+            // comboBox1
+            // 
+            this.comboBox1.DataSource = this.narzedziaBindingSource;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(219, 129);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(142, 21);
+            this.comboBox1.TabIndex = 33;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1102, 450);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.numericUpDown3);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.button7);
@@ -400,7 +402,6 @@
             this.Controls.Add(this.button5);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.label6);
@@ -450,7 +451,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.BindingSource dESKTOPH65VDV2SQLEXPRESSDataSetBindingSource;
         private _DESKTOP_H65VDV2_SQLEXPRESSDataSet _DESKTOP_H65VDV2_SQLEXPRESSDataSet;
         private _marcin_bohmDataSet _marcin_bohmDataSet;
@@ -473,5 +473,6 @@
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.NumericUpDown numericUpDown3;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

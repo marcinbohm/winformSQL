@@ -51,7 +51,7 @@ namespace SQL_db_bind
         {
             
 ;
-            if (String.IsNullOrEmpty(textBox2.Text) || String.IsNullOrEmpty(textBox3.Text) || String.IsNullOrEmpty(textBox4.Text))
+            if (String.IsNullOrEmpty(textBox2.Text) || String.IsNullOrEmpty(textBox3.Text) || String.IsNullOrEmpty(textBox4.Text) || String.IsNullOrEmpty(listBox1.Text))
             {
                 MessageBox.Show("Fill all of the textboxes");
             }
@@ -63,8 +63,7 @@ namespace SQL_db_bind
                    
                 query.Connection = con;
                     
-                query.CommandText = "INSERT INTO Narzedzia (nazwa_podstawowa, nazwa_dodatkowa, numer_inwentarzowy, ilosc, id_rodzaj_narzedzia, narzedzie_unikatowe) " +
-                " VALUES ('@nazwa_podstawowa, @nazwa_dodatkowa, @numer_inwentarzowy, @ilosc, @id_rodzaj_narzedzia, @narzedzie_unikatowe')";
+                query.CommandText = "INSERT INTO Narzedzia (nazwa_podstawowa, nazwa_dodatkowa, numer_inwentarzowy, ilosc, id_rodzaj_narzedzia, narzedzie_unikatowe) VALUES ('@nazwa_podstawowa', '@nazwa_dodatkowa', '@numer_inwentarzowy', @ilosc, @id_rodzaj_narzedzia, @narzedzie_unikatowe)";
 
                     
                 query.Parameters.AddWithValue("@nazwa_podstawowa", textBox2.Text.Trim());
@@ -75,7 +74,7 @@ namespace SQL_db_bind
                    
                 query.Parameters.AddWithValue("@ilosc", numericUpDown1.Value);
                    
-                query.Parameters.AddWithValue("@id_rodzaj_narzedzia", listBox1.SelectedItem.ToString());
+                query.Parameters.AddWithValue("@id_rodzaj_narzedzia", listBox1.SelectedItem);
                 
                     
                 if(checkBox1.Checked)   
@@ -115,15 +114,15 @@ namespace SQL_db_bind
             dataGridView1.DataSource = dt;
 
 
-            string query2 = "SELECT rodzaj FROM Narzedzia, Rodzaj_Narzedzia WHERE Rodzaj_Narzedzia.id_rodzaj_narzedzia = Narzedzia.id_rodzaj_narzedzia GROUP BY rodzaj";
+            /*string query2 = "SELECT rodzaj FROM Rodzaj_Narzedzia";
             SqlDataAdapter adpt = new SqlDataAdapter(query2, con);
             DataTable dt2 = new DataTable();
             adpt.Fill(dt2);
             foreach (DataRow row in dt2.Rows)
             {
-                listBox1.Items.Add(row["rodzaj"]);
+                listBox1.Items.Add(row["rodzaj"].ToString());
             }
-            con.Close();
+            con.Close();*/
 
 
         }
@@ -159,6 +158,23 @@ namespace SQL_db_bind
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string query2 = "SELECT id_rodzaj_narzedzia, rodzaj FROM Rodzaj_Narzedzia";
+            SqlDataAdapter adpt = new SqlDataAdapter(query2, con);
+            DataTable dt2 = new DataTable();
+            adpt.Fill(dt2);
+            //foreach (DataRow row in dt2.Rows)
+            //{
+            comboBox1.DataSource = dt2;
+            comboBox1.ValueMember = "id_rodzaj_narzedzia";
+            comboBox1.DisplayMember = "rodzaj";
+            comboBox1.DataBindings.Add(new Binding("SelectedValue", dt2, "id_rodzaj_narzedzia"));
+            ;// listBox1.Items.Add(row["rodzaj"]);
+            //}
+            con.Close();
         }
     }
 }
