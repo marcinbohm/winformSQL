@@ -75,7 +75,7 @@ namespace SQL_db_bind
                    
                 query.Parameters.AddWithValue("@ilosc", numericUpDown1.Value);
                    
-                query.Parameters.AddWithValue("@id_rodzaj_narzedzia", listBox1.SelectedValue);
+                query.Parameters.AddWithValue("@id_rodzaj_narzedzia", listBox1.SelectedItem.ToString());
                 
                     
                 if(checkBox1.Checked)   
@@ -121,7 +121,7 @@ namespace SQL_db_bind
             adpt.Fill(dt2);
             foreach (DataRow row in dt2.Rows)
             {
-                listBox1.Items.Add(row["rodzaj"].ToString());
+                listBox1.Items.Add(row["rodzaj"]);
             }
             con.Close();
 
