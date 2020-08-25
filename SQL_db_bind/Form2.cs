@@ -51,7 +51,7 @@ namespace SQL_db_bind
         {
             
 ;
-            if (String.IsNullOrEmpty(textBox2.Text) || String.IsNullOrEmpty(textBox3.Text) || String.IsNullOrEmpty(textBox4.Text) || String.IsNullOrEmpty(listBox1.Text))
+            if (String.IsNullOrEmpty(textBox2.Text) || String.IsNullOrEmpty(textBox3.Text) || String.IsNullOrEmpty(textBox4.Text))
             {
                 MessageBox.Show("Fill all of the textboxes");
             }
@@ -74,7 +74,7 @@ namespace SQL_db_bind
                    
                 query.Parameters.AddWithValue("@ilosc", numericUpDown1.Value);
                    
-                query.Parameters.AddWithValue("@id_rodzaj_narzedzia", listBox1.SelectedItem);
+                query.Parameters.AddWithValue("@id_rodzaj_narzedzia", comboBox1.ValueMember);
                 
                     
                 if(checkBox1.Checked)   
@@ -124,7 +124,19 @@ namespace SQL_db_bind
             }
             con.Close();*/
 
-
+            string query2 = "SELECT id_rodzaj_narzedzia, rodzaj FROM Rodzaj_Narzedzia";
+            SqlDataAdapter adpt = new SqlDataAdapter(query2, con);
+            DataTable dt2 = new DataTable();
+            adpt.Fill(dt2);
+            //foreach (DataRow row in dt2.Rows)
+            //{
+            comboBox1.DataSource = dt2;
+            comboBox1.ValueMember = "id_rodzaj_narzedzia";
+            comboBox1.DisplayMember = "rodzaj";
+            comboBox1.DataBindings.Add(new Binding("SelectedValue", dataGridView1.DataSource, "id_rodzaj_narzedzia"));
+            ;// listBox1.Items.Add(row["rodzaj"]);
+            //}
+            con.Close();
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -162,19 +174,7 @@ namespace SQL_db_bind
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string query2 = "SELECT id_rodzaj_narzedzia, rodzaj FROM Rodzaj_Narzedzia";
-            SqlDataAdapter adpt = new SqlDataAdapter(query2, con);
-            DataTable dt2 = new DataTable();
-            adpt.Fill(dt2);
-            //foreach (DataRow row in dt2.Rows)
-            //{
-            comboBox1.DataSource = dt2;
-            comboBox1.ValueMember = "id_rodzaj_narzedzia";
-            comboBox1.DisplayMember = "rodzaj";
-            comboBox1.DataBindings.Add(new Binding("SelectedValue", dt2, "id_rodzaj_narzedzia"));
-            ;// listBox1.Items.Add(row["rodzaj"]);
-            //}
-            con.Close();
+            
         }
     }
 }
