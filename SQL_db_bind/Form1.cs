@@ -20,7 +20,13 @@ namespace SQL_db_bind
 
         private void Form1_Load(object sender, EventArgs e)
         {
-           
+            string[] alllines = System.IO.File.ReadAllLines("data");
+
+            List<TextBox> allTextboxes = this.Controls.OfType<TextBox>().ToList();
+            for (int i = 0; i < allTextboxes.Count; i++)
+            {
+                allTextboxes[i].Text = alllines[i];
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -33,6 +39,9 @@ namespace SQL_db_bind
             SqlConnection sqlconn = new SqlConnection($"Data Source={u.Server};Initial Catalog={u.Database};User Id={u.Usrname};Password={u.Pass}");
             try
             {
+                List<string> allvalues = this.Controls.OfType<TextBox>().Select(x => x.Text).ToList();
+                System.IO.File.WriteAllText("data", String.Join(Environment.NewLine, allvalues));
+
                 sqlconn.Open();
                 using (sqlconn)
                 {

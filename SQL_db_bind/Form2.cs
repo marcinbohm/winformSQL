@@ -114,6 +114,7 @@ namespace SQL_db_bind
             sda.Fill(dt);
             dataGridView1.DataSource = dt;
 
+
             string query2 = "SELECT rodzaj FROM Narzedzia, Rodzaj_Narzedzia WHERE Rodzaj_Narzedzia.id_rodzaj_narzedzia = Narzedzia.id_rodzaj_narzedzia GROUP BY rodzaj";
             SqlDataAdapter adpt = new SqlDataAdapter(query2, con);
             DataTable dt2 = new DataTable();
@@ -123,6 +124,8 @@ namespace SQL_db_bind
                 listBox1.Items.Add(row["rodzaj"].ToString());
             }
             con.Close();
+
+
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
